@@ -1,2 +1,1 @@
-![Oddsized Logo](http://oddsized.com/site/wp-content/uploads/2016/12/oddlab_logo_large.png)
-
+![Oddsized Logo](https://avatars3.githubusercontent.com/u/20241931?v=3&s=460)
