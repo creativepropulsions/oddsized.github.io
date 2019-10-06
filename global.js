@@ -120,7 +120,7 @@ fetchUrlData( wpposturl+'/wp-json/wp/v2/posts?filter[categories]=portfolio&per_p
 	swiperH.update();
 });
 
-var pageurl = 'https://webdesigndenhaag.net/info/wp-json/wp/v2/pages';
+var pageurl = 'https://webdesigndenhaag.net/wp-json/wp/v2/pages';
 
 $.ajax({
           url: pageurl, // json data
