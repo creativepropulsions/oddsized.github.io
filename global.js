@@ -121,32 +121,37 @@ fetchUrlData( wpposturl+'/wp-json/wp/v2/posts?filter[categories]=portfolio&per_p
 });
 
 var pageurl = 'https://webbouwer.org/blog/wp-json/wp/v2/pages';
-
+var pagebox = "#pagelist";
 $.ajax({
           url: pageurl, // json data
           contentType: 'application/json',
           dataType: 'json', // ? change this to jsonp if it is a cross org. req.
           contentType:'json',
           success: function(json) {
-              //console.log(json);
-              var list;
+            //console.log(json);
+            createList(json, pagebox);
+            callback();
 
-              if(obj){
-              if(obj.data){
-                list = obj.data;
-              }else if(obj.list){
-                 list = obj.list;
-              }else{
-                 list = obj;
-              }
-              }
-
-              $.each(list, function(index, value) { //var data = JSON.stringify(value);
-                var item = $('<div class="page-container" data-swiper-parallax="-300">'+index + " - " + value.title.rendered+'</div>');
-                $("#pagelist").append( item );
-              });
           }
 	});
+
+  var createPageList = function(obj, el) {
+
+  	var list;
+  	if(obj.data){
+      list = obj.data;
+    }else if(obj.list){
+       list = obj.list;
+    }else{
+       list = obj;
+    }
+
+    $.each(list, function(index, value) { //var data = JSON.stringify(value);
+      var item = $('<div class="page-container" data-swiper-parallax="-300">'+index + " - " + value.title.rendered+'</div>');
+      $(el).append( item );
+    });
+
+  };
 
 
 });
